@@ -48,12 +48,12 @@ public class User {
 		savingsAccount = new SavingsAccount(0, null);
     }
 	
-	public void transferToSaving(int amount) {
+	public void transferToSaving(double amount) {
 		currentAccount.balance -= amount;
 		savingsAccount.balance += amount;
 	}
 	
-	public void transferToCurrent(int amount) {
+	public void transferToCurrent(double amount) {
 		savingsAccount.balance -= amount;
 		currentAccount.balance += amount;
 	}

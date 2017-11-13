@@ -1,6 +1,7 @@
 package domain;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,22 +23,32 @@ public class SavingsAccountTest {
 
 	@Test
 	public void testGetBalance() {
-		int result = 0;
+		double result = 0;
 		assertEquals(result, classUnderTest.getBalance());
 	}
 	
 	@Test
 	public void testDeposit() {
-		int result = 100;
+		double result = 100;
 		classUnderTest.deposit(100);
 		assertEquals(result, classUnderTest.getBalance());
 	}
 	
 	@Test
 	public void testWithdraw() {
-		int result = 50;
+		double result = 50;
 		classUnderTest.deposit(100);
 		classUnderTest.withdraw(50);
+		assertEquals(result, classUnderTest.getBalance());
+	}
+	
+	@Test
+	public void testAddInterest() {
+		double result = 105.11401320407893;
+		classUnderTest.deposit(100.00);
+		for(int i=0; i<10; i++){
+	        classUnderTest.addInterest();
+	     }
 		assertEquals(result, classUnderTest.getBalance());
 	}
 }

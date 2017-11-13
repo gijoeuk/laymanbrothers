@@ -13,10 +13,10 @@ public class CurrentAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	int balance;
+	double balance;
 	public List<Transaction> transactions;
 
-	public CurrentAccount(int balance) {
+	public CurrentAccount(double balance) {
 		this.balance = balance;
 		this.transactions = new ArrayList<Transaction>();
 	}
@@ -25,21 +25,25 @@ public class CurrentAccount {
 		return id;
 	}
 
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(int balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 	
 	
-	public void deposit(int amount) {
+	public void deposit(double amount) {
 		balance += amount;
 	}
 	
-	public void withdraw(int amount) {
+	public void withdraw(double amount) {
 		balance -= amount;
+	}
+	
+	public void addInterest() {
+		balance *= 1.002;		
 	}
 	
 }

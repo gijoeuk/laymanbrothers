@@ -13,10 +13,10 @@ public class SavingsAccount {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
-	int balance;
+	double balance;
 	private Transaction[] transactions;
 
-	public SavingsAccount(int balance, Transaction[] transactions) {
+	public SavingsAccount(double balance, Transaction[] transactions) {
 		super();
 		this.balance = balance;
 		this.transactions = transactions;
@@ -34,11 +34,11 @@ public class SavingsAccount {
 		this.name = name;
 	}
 
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(int balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 	
@@ -46,12 +46,16 @@ public class SavingsAccount {
 		return transactions;
 	}
 	
-	public void deposit(int amount) {
+	public void deposit(double amount) {
 		balance += amount;
 	}
 	
 	public void withdraw(int amount) {
 		balance -= amount;
+	}
+	
+	public void addInterest() {
+		balance *= 1.005;		
 	}
 	
 }
