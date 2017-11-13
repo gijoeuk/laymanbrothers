@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Transactions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1 class='heading'>Your Transactions</h1>
+    
+    <ul data-th-each="transaction : ${accounts.transactions}">
+    		<li data-th-text="${transaction.amount}">...</li>
+    		<li	style="list-style:none" data-th-text="${transaction.transactionDate}">...</li>
+    </ul>
+    
+    
+</body>
+</html>
